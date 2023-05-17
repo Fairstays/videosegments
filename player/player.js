@@ -1,21 +1,21 @@
 /*
-    VideoSegments. Extension to Cut YouTube Videos. 
-    Copyright (C) 2017-2019  Alex Lys
+	VideoSegments. Extension to Cut YouTube Videos. 
+	Copyright (C) 2017-2019  Alex Lys
 
-    This file is part of VideoSegments.
+	This file is part of VideoSegments.
 
-    VideoSegments is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	VideoSegments is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    VideoSegments is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	VideoSegments is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with VideoSegments. If not, see <https://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with VideoSegments. If not, see <https://www.gnu.org/licenses/>.
 */
 
 'use strict';
@@ -116,11 +116,12 @@ class Player {
 		let q_segments = JSON.parse(decodeURIComponent(getQueryString('segments')))
 		if (q_segments !== null) {
 			this.setLocalSegmentation(
-			  q_segments.timestamps,
-			  q_segments.types,
-			  q_segments.id
+				q_segments.timestamps,
+				q_segments.types,
+				q_segments.id,
+				q_segments.inverse
 			);
-		  }
+		}
 		if (pid === null) {
 			// request local and community segmentations 
 			this.getCommunitySegmentation().then(segmentation => {
@@ -133,7 +134,8 @@ class Player {
 				} else {
 					self.onGotSegmentation('official', {
 						timestamps: segmentation.timestamps,
-						types: segmentation.types
+						types: segmentation.types,
+						inverse: segmentation.inverse
 					}, 'local');
 				}
 			});
@@ -142,7 +144,8 @@ class Player {
 				this.getLocalSegmentation().then(segmentation => {
 					self.onGotSegmentation('local', {
 						timestamps: q_segments.timestamps,
-						types: q_segments.types
+						types: q_segments.types,
+						inverse: q_segments.inverse
 					}, 'official')
 				});
 
@@ -374,7 +377,8 @@ class Player {
 				if (result[storageId] !== '') {
 					let response = {
 						timestamps: result[storageId].timestamps,
-						types: result[storageId].types
+						types: result[storageId].types,
+						inverse: result[storageId].inverse
 					};
 					resolve(response || {});
 				} else {
@@ -385,20 +389,22 @@ class Player {
 	}
 
 	setLocalSegmentation(timestamps, types, id) {
-   		let storageId = 'youtube-' + id;
-    	let data = { timestamps: timestamps, types: types };
-    	browser.storage.local.set({ [storageId]: data });
-  	}
+		let storageId = 'youtube-' + id;
+		let data = { timestamps: timestamps, types: types };
+		browser.storage.local.set({ [storageId]: data });
+	}
 
 	async getPendingSegmentation(pid) {
 		let response = await xhr_get('https://db.videosegments.org/api/v3/review.php?id=' + pid);
 		if (typeof response.timestamps !== 'undefined' && response.timestamps.length > 0) {
 			let timestamps = response.timestamps;
 			let types = response.types;
+			let inverse = response.inverse;
 			let origin = 'pending';
 			return {
 				timestamps: timestamps,
 				types: types,
+				inverse: inverse,
 				origin: origin
 			};
 		} else {
@@ -436,7 +442,7 @@ class Player {
 			if (this.getSegmentSimplifiedType(segmentation.types[i]) !== lastType) {
 				simplified.timestamps.push(segmentation.timestamps[i]);
 				simplified.types.push(lastType);
-
+				console.log("simplified.types",simplified.types)
 				lastType = this.getSegmentSimplifiedType(segmentation.types[i]);
 			}
 		}
@@ -445,6 +451,7 @@ class Player {
 			simplified.timestamps.push(segmentation.timestamps[segmentation.timestamps.length - 1]);
 			simplified.types.push(lastType);
 		}
+		simplified.inverse = segmentation.inverse
 
 		return simplified;
 	}
@@ -462,9 +469,9 @@ class Player {
 
 	getSegmentSimplifiedType(type) {
 		if (type === 'c' || type == 'ac') {
-			return 'pl';
+			return this.segmentation.inverse ? 'sk' : 'sk';
 		} else {
-			return 'sk';
+			return this.segmentation.inverse ? 'pl' : 'pl';
 		}
 	}
 
