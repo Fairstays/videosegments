@@ -21,910 +21,955 @@
     Segmentsbar 
 */
 #vs-segmentsbar {
-    height: 0;
-    overflow: visible;
-    padding: 0;
-    margin: 0;
-    margin-top: 1px;
-    position: absolute;
-    width: 100%;
-    pointer-events: none;
+  height: 0;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+  margin-top: 1px;
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
 }
 
 .vs-segmentbar {
-    display: inline-block;
-    height: 3px;
+  display: inline-block;
+  height: 3px;
 }
 
 .vs-segmentsbar-overlay {
-    z-index: 100;
-    opacity: 0.5;
+  z-index: 100;
+  opacity: 0.5;
 }
 
 /*
     Panel 
 */
 #vs-editor {
-    position: absolute;
-    z-index: 2000;
-    /* background: white; */
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    /* force black text color in fullscreen mode */
-    /* color: #000 !important; */
-    padding: 2px;
+  position: absolute;
+  z-index: 2000;
+  /* background: white; */
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  /* force black text color in fullscreen mode */
+  /* color: #000 !important; */
+  padding: 2px;
 }
 
 #vs-editor-hidden {
-    display: none;
+  display: none;
 }
 
 .vs-editor-simplified {
-    width: 200px;
+  width: 200px;
 }
 
 .vs-editor-expert {
-    width: 285px;
+  width: 285px;
 }
 
 .vs-editor-minimized {
-    max-width: 20px;
-    max-height: 20px;
-    overflow: hidden;
+  max-width: 20px;
+  max-height: 20px;
+  overflow: hidden;
 }
 
 .vs-editor-allow-hover:hover {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
 
 .vs-editor-opaque {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
 
 #vs-editor-controls {
-    display: flex;
-    justify-content: space-between;
-    /* fullscreen */
-    font-size: 11px !important;
+  display: flex;
+  justify-content: space-between;
+  /* fullscreen */
+  font-size: 11px !important;
 }
 
 #vs-editor-controls div {
-    padding: 2px;
-    display: inline;
+  padding: 2px;
+  display: inline;
 }
 
 #vs-editor-controls #vs-editor-move {
-    margin-right: 8px;
-    cursor: grab;
+  margin-right: 8px;
+  cursor: grab;
 }
 
 #vs-editor-controls #vs-editor-acceleration {
-    cursor: n-resize;
+  cursor: n-resize;
 }
 
 #vs-editor-controls #vs-editor-minimize {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #vs-editor-controls #vs-editor-close {
-    margin-left: 8px;
-    cursor: pointer;
+  margin-left: 8px;
+  cursor: pointer;
 }
 
 #vs-editor-opacity {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 #vs-editor-opacity-slider {
-    -webkit-appearance: none;
-    vertical-align: middle;
-    border: 1px solid gray;
-    outline: none;
-    width: 100px;
-    height: 0px;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border: 1px solid gray;
+  outline: none;
+  width: 100px;
+  height: 0px;
 }
 
 #vs-editor-opacity-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    width: 9px;
-    height: 18px;
-    cursor: pointer;
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 9px;
+  height: 18px;
+  cursor: pointer;
 }
 
 #vs-editor-opacity-slider::-moz-range-track {
-    border: 1px solid gray;
-    outline: none;
-    width: 100px;
-    height: 0px;
+  border: 1px solid gray;
+  outline: none;
+  width: 100px;
+  height: 0px;
 }
 
 #vs-editor-opacity-slider::-moz-range-thumb {
-    background-color: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    width: 9px;
-    height: 18px;
-    cursor: pointer;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 9px;
+  height: 18px;
+  cursor: pointer;
 }
 
 #vs-editor-simplified-buttons,
 #vs-editor-expert-buttons {
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 5px;
-    /* border-bottom: 2px solid #ddd; */
-    flex-wrap: wrap;
-    line-height: 0px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+  /* border-bottom: 2px solid #ddd; */
+  flex-wrap: wrap;
+  line-height: 0px;
 }
 
 #vs-editor-simplified-buttons button {
-    width: 30%;
-    font-size: 10px;
-    margin-top: 3px;
-    /* border-style: solid; */
+  width: 30%;
+  font-size: 10px;
+  margin-top: 3px;
+  /* border-style: solid; */
 }
 
 #vs-editor-expert-buttons .vs-editor-expert-buttons-container {
-    width: 90px;
-    font-size: 10px;
-    margin-top: 3px;
+  width: 90px;
+  font-size: 10px;
+  margin-top: 3px;
 }
 
 .vs-editor-expert-buttons-container button {
-    font-family: courier;
-    text-align: center;
-    font-size: 11px;
-    padding: 2px 0;
-    border-style: solid;
+  font-family: courier;
+  text-align: center;
+  font-size: 11px;
+  padding: 2px 0;
+  border-style: solid;
 }
 
 .vs-editor-expert-buttons-container button:first-child {
-    width: 60px;
-    margin: 0;
+  width: 60px;
+  margin: 0;
 }
 
 .vs-editor-expert-buttons-container button:last-child {
-    width: 20px;
-    margin: 0;
+  width: 20px;
+  margin: 0;
 }
 
 #vs-editor-segments {
-    /* border-bottom: 2px solid #ddd; */
-    overflow: hidden;
-    text-align: center;
-    padding: 3px 0;
-    /* fullscreen */
-    font-size: 11px !important;
+  /* border-bottom: 2px solid #ddd; */
+  overflow: hidden;
+  text-align: center;
+  padding: 3px 0;
+  /* fullscreen */
+  font-size: 11px !important;
 }
 
 .vs-editor-segment-entry {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
 }
 
 .vs-editor-segment-entry:last-child {
-    margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 
 .vs-editor-segment-entry .fa-times {
-    cursor: pointer;
-    color: #ed4337;
-    margin-right: 3px;
+  cursor: pointer;
+  color: #ed4337;
+  margin-right: 3px;
 }
 
 .vs-editor-segment-entry .fa-forward {
-    cursor: pointer;
-    color: #4b71e6;
-    margin-left: 4px;
+  cursor: pointer;
+  color: #4b71e6;
+  margin-left: 4px;
 }
 
 .vs-editor-segment-entry-time {
-    outline-width: 0;
-    font-family: courier;
-    text-align: center;
-    font-size: 11px;
-    padding: 0px;
-    border: none;
-    border-bottom: 1px solid black;
+  outline-width: 0;
+  font-family: courier;
+  text-align: center;
+  font-size: 11px;
+  padding: 0px;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .vs-editor-segment-entry-start-time {
-    cursor: not-allowed;
-    background: #f8f8f8;
+  cursor: not-allowed;
+  background: #f8f8f8;
 }
 
 .vs-editor-segment-entry-end-time:focus {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .vs-editor-segment-entry-type {
-    font-family: courier;
-    font-size: 11px;
-    border: none;
-    border-bottom: 1px solid black;
+  font-family: courier;
+  font-size: 11px;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .vs-editor-segment-entry-type-simplified {
-    font-family: courier;
-    font-size: 11px;
+  font-family: courier;
+  font-size: 11px;
 }
 
 .vs-editor-segment-entry-time-holder {
-    font-family: courier;
-    direction: rtl;
-    width: 4em;
+  font-family: courier;
+  direction: rtl;
+  width: 4em;
 }
 
 #vs-editor-actions {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 5px 0;
-    font-size: 11px !important;
-    /* fullscreen */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 11px !important;
+  /* fullscreen */
 }
 
 #vs-editor-origin {
-    text-align: center;
-    width: 45%;
+  text-align: center;
+  width: 45%;
 }
 
 #vs-editor-share {
-    font-family: courier;
-    text-align: center;
-    font-size: 11px;
-    width: 45%;
+  font-family: courier;
+  text-align: center;
+  font-size: 11px;
+  width: 45%;
 }
 
 .vs-editor-display-none {
-    display: none;
+  display: none;
 }
 
 #vs-editor-review-buttons button {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 /*
     Modals
 */
 .vs-small-modal {
-    display: inline-block;
-    position: fixed;
-    z-index: 2147483647;
-    /* youtube have pretty high z-index for top menu */
-    right: 5%;
-    top: -20%;
-    background-color: #fff;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-    transition: top 0.4s ease;
-    border-radius: 3px;
-    overflow: hidden;
-    max-width: 30%;
+  display: inline-block;
+  position: fixed;
+  z-index: 2147483647;
+  /* youtube have pretty high z-index for top menu */
+  right: 5%;
+  top: -20%;
+  background-color: #fff;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  transition: top 0.4s ease;
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 30%;
 }
 
 .vs-small-modal-animation {
-    top: 10% !important;
-    transition: top 0.4s ease;
+  top: 10% !important;
+  transition: top 0.4s ease;
 }
 
 .vs-small-modal-header {
-    padding: 5px 10px;
-    font-size: 180%;
-    color: #000;
+  padding: 5px 10px;
+  font-size: 180%;
+  color: #000;
 }
 
 .vs-small-modal-body {
-    padding: 5px 10px;
-    font-size: 140%;
+  padding: 5px 10px;
+  font-size: 140%;
 }
 
 .vs-big-modal {
-    position: fixed;
-    z-index: 100000;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 100000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .vs-big-modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    width: 30%;
-    top: 100px;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  width: 30%;
+  top: 100px;
 }
 
 .vs-big-modal-header {
-    padding: 5px 10px;
-    font-size: 180%;
-    color: #000;
+  padding: 5px 10px;
+  font-size: 180%;
+  color: #000;
 }
 
 .vs-big-modal-body {
-    padding: 10px 20px;
-    font-size: 140%;
+  padding: 10px 20px;
+  font-size: 140%;
 }
 
 .vs-big-modal-footer {
-    padding: 5px 10px;
-    font-size: 140%;
-    text-align: center;
-    margin-bottom: 5px;
+  padding: 5px 10px;
+  font-size: 140%;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .vs-big-modal-disable {
-    vertical-align: middle;
-    margin-bottom: 5px;
+  vertical-align: middle;
+  margin-bottom: 5px;
 }
 
 .vs-big-modal-disable-text {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 .vs-big-modal-close {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 @keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0;
-    }
+  from {
+    top: -300px;
+    opacity: 0;
+  }
 
-    to {
-        top: 100px;
-        opacity: 1;
-    }
+  to {
+    top: 100px;
+    opacity: 1;
+  }
 }
 
 .vs-captcha-modal {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2147483647;
-    background-color: #fff;
-    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-    transition: top 0.4s ease;
-    border-radius: 3px;
-    overflow: hidden;
-    width: 450px;
-    height: 700px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2147483647;
+  background-color: #fff;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+  transition: top 0.4s ease;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 450px;
+  height: 700px;
 }
 
 .vs-captcha-modal-header {
-    text-align: center;
-    padding: 5px 10px;
-    color: #000;
-    height: 60px;
+  text-align: center;
+  padding: 5px 10px;
+  color: #000;
+  height: 60px;
 }
 
 .vs-captcha-modal-header-extension {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .vs-captcha-modal-header-confirm {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .vs-captcha-modal-iframe {
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    top: 60px;
-    height: calc(100vh - 60px);
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 60px;
+  height: calc(100vh - 60px);
 }
 
 /*
     tutorial
 */
 #vs-tutorial {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
-    z-index: 2147483647;
-    background-color: #fff;
-    padding: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
+  z-index: 2147483647;
+  background-color: #fff;
+  padding: 5px;
 }
 
 #vs-tutorial ul {
-    display: table;
-    margin: 0 auto;
-    padding-left: 1.5em;
+  display: table;
+  margin: 0 auto;
+  padding-left: 1.5em;
 }
 
 #vs-tutorial-header {
-    width: 100%;
-    border-bottom: 1px solid black;
-    font-size: 2em;
-    line-height: 2em;
-    text-align: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+  font-size: 2em;
+  line-height: 2em;
+  text-align: center;
 }
 
 #vs-tutorial-content {
-    font-size: 1.4em;
-    padding: 5px;
+  font-size: 1.4em;
+  padding: 5px;
 }
 
 #vs-tutorial-content-header {
-    text-align: center;
+  text-align: center;
 }
 
 #vs-tutorial-footer {
-    text-align: center;
+  text-align: center;
 }
 
 .vs-tutorial {
-    font-family: Roboto, Arial, sans-serif;
-    text-align: center;
-    font-size: 16px;
+  font-family: Roboto, Arial, sans-serif;
+  text-align: center;
+  font-size: 16px;
 
-    background-color: #ff0000;
-    color: white;
+  background-color: #ff0000;
+  color: white;
 
-    padding: 6px 10px;
-    margin-top: 5px;
+  padding: 6px 10px;
+  margin-top: 5px;
 
-    max-width: 400px;
-    z-index: 9000;
+  max-width: 400px;
+  z-index: 9000;
 
-    cursor: context-menu;
-    pointer-events: none;
+  cursor: context-menu;
+  pointer-events: none;
 }
 
-.vs-tutorial[x-placement="top"] {
-    margin-bottom: 10px;
+.vs-tutorial[x-placement='top'] {
+  margin-bottom: 10px;
 }
 
-.vs-tutorial[x-placement="top"] .vs-tutorial-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #ff0000;
-    z-index: 9000;
-    position: absolute;
-    left: calc(50% - 10px);
-    bottom: -10px;
+.vs-tutorial[x-placement='top'] .vs-tutorial-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ff0000;
+  z-index: 9000;
+  position: absolute;
+  left: calc(50% - 10px);
+  bottom: -10px;
 }
 
-.vs-tutorial[x-placement="bottom"] {
-    margin-top: 10px;
+.vs-tutorial[x-placement='bottom'] {
+  margin-top: 10px;
 }
 
-.vs-tutorial[x-placement="bottom"] .vs-tutorial-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #ff0000;
-    z-index: 9000;
-    position: absolute;
-    left: 50%;
-    margin-left: -10px;
-    top: -10px;
+.vs-tutorial[x-placement='bottom'] .vs-tutorial-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ff0000;
+  z-index: 9000;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  top: -10px;
 }
 
 .vs-tutorial-message {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .vs-tutorial-close {
-    width: 50%;
+  width: 50%;
 }
 
 .vs-info {
-    font-family: Roboto, Arial, sans-serif;
-    text-align: center;
-    font-size: 14px;
+  font-family: Roboto, Arial, sans-serif;
+  text-align: center;
+  font-size: 14px;
 
-    background-color: #001020;
-    color: white;
+  background-color: #001020;
+  color: white;
 
-    padding: 6px 10px;
+  padding: 6px 10px;
 
-    max-width: 120px;
-    z-index: 9000;
+  max-width: 120px;
+  z-index: 9000;
 
-    cursor: context-menu;
-    pointer-events: none;
+  cursor: context-menu;
+  pointer-events: none;
 }
 
-.vs-info[x-placement="top"] {
-    margin-bottom: 10px;
+.vs-info[x-placement='top'] {
+  margin-bottom: 10px;
 }
 
-.vs-info[x-placement="top"] .vs-info-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #f00;
-    z-index: 9000;
-    position: absolute;
-    left: calc(50% - 10px);
-    bottom: -10px;
+.vs-info[x-placement='top'] .vs-info-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f00;
+  z-index: 9000;
+  position: absolute;
+  left: calc(50% - 10px);
+  bottom: -10px;
 }
 
-.vs-info[x-placement="bottom"] {
-    margin-top: 10px;
+.vs-info[x-placement='bottom'] {
+  margin-top: 10px;
 }
 
-.vs-info[x-placement="bottom"] .vs-info-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #f00;
-    z-index: 9000;
-    position: absolute;
-    left: 50%;
-    margin-left: -10px;
-    top: -10px;
+.vs-info[x-placement='bottom'] .vs-info-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f00;
+  z-index: 9000;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  top: -10px;
 }
 
-.vs-info[x-placement="left"] {
-    margin-right: 10px;
+.vs-info[x-placement='left'] {
+  margin-right: 10px;
 }
 
-.vs-info[x-placement="left"] .vs-info-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid #f00;
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    z-index: 9000;
-    position: absolute;
-    top: calc(50% - 10px);
-    right: -10px;
+.vs-info[x-placement='left'] .vs-info-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid #f00;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  z-index: 9000;
+  position: absolute;
+  top: calc(50% - 10px);
+  right: -10px;
 }
 
-.vs-info[x-placement="right"] {
-    margin-left: 10px;
+.vs-info[x-placement='right'] {
+  margin-left: 10px;
 }
 
-.vs-info[x-placement="right"] .vs-info-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-right: 10px solid #f00;
-    border-bottom: 10px solid transparent;
-    border-top: 10px solid transparent;
-    z-index: 9000;
-    position: absolute;
-    top: calc(50% - 10px);
-    left: -10px;
+.vs-info[x-placement='right'] .vs-info-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 10px solid #f00;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  z-index: 9000;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: -10px;
 }
 
 .vs-info-message {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .vs-info-large {
-    font-family: Roboto, Arial, sans-serif;
-    text-align: center;
-    font-size: 14px;
+  font-family: Roboto, Arial, sans-serif;
+  text-align: center;
+  font-size: 14px;
 
-    background-color: #001020;
-    color: white;
+  background-color: #001020;
+  color: white;
 
-    padding: 6px 10px;
+  padding: 6px 10px;
 
-    max-width: 175px;
-    z-index: 9000;
+  max-width: 175px;
+  z-index: 9000;
 
-    cursor: context-menu;
-    pointer-events: none;
+  cursor: context-menu;
+  pointer-events: none;
 }
 
-.vs-info-large[x-placement="bottom"] {
-    margin-top: 10px;
+.vs-info-large[x-placement='bottom'] {
+  margin-top: 10px;
 }
 
-.vs-info-large[x-placement="bottom"] .vs-info-large-arrow:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #f00;
-    z-index: 9000;
-    position: absolute;
-    left: 50%;
-    margin-left: -10px;
-    top: -10px;
+.vs-info-large[x-placement='bottom'] .vs-info-large-arrow:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f00;
+  z-index: 9000;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  top: -10px;
 }
 
 .vs-info-large-message {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /*
     Welcome popup
 */
 .vs-welcome {
-    position: fixed;
-    z-index: 2500;
+  position: fixed;
+  z-index: 2500;
 
-    left: 50%;
-    top: 50%;
-    background-color: #f8f8f8;
-    z-index: 2800;
+  left: 50%;
+  top: 50%;
+  background-color: #f8f8f8;
+  z-index: 2800;
 
-    height: 420px;
-    margin-top: -210px;
+  height: 420px;
+  margin-top: -210px;
 
-    width: 800px;
-    margin-left: -400px;
+  width: 800px;
+  margin-left: -400px;
 
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-    padding: 2px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  padding: 2px;
 }
 
 .vs-welcome-header {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
 
-    padding: 1.2rem 1.2rem 0.5rem 1.2rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
+  padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 
-    border-bottom: 2px solid gray;
+  border-bottom: 2px solid gray;
 }
 
 .vs-welcome-content {
-    display: flex;
-    /* border-bottom: 2px solid gray; */
+  display: flex;
+  /* border-bottom: 2px solid gray; */
 }
 
 .vs-welcome-color-scheme {
-    width: 60%;
-    text-align: center;
-    /* border-right: 2px solid gray; */
+  width: 60%;
+  text-align: center;
+  /* border-right: 2px solid gray; */
 }
 
 .vs-welcome-tutorial {
-    width: 40%;
-    text-align: center;
+  width: 40%;
+  text-align: center;
 }
 
 .vs-welcome-subheader {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5rem;
-    padding: 0.5rem 0.5rem 0 0.5rem;
-    margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  margin: 0;
 }
 
 .vs-welcome-subheader-small {
-    font-size: 1.7rem;
-    color: black;
-    margin: 0;
+  font-size: 1.7rem;
+  color: black;
+  margin: 0;
 }
 
 #vs-dummy-editor {
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 2px;
-    width: 300px;
-    margin: 1.5rem auto 0 auto;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 2px;
+  width: 300px;
+  margin: 1.5rem auto 0 auto;
 }
 
 #vs-dummy-editor-controls {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px !important;
-    padding: 3px 3px 0 3px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px !important;
+  padding: 3px 3px 0 3px;
 }
 
 #vs-dummy-editor-move {
-    margin-right: 12px;
-    cursor: default;
+  margin-right: 12px;
+  cursor: default;
 }
 
 #vs-dummy-editor-acceleration {
-    cursor: default;
+  cursor: default;
 }
 
 #vs-dummy-editor-opacity {
-    margin-bottom: 9px;
+  margin-bottom: 9px;
 }
 
 #vs-dummy-editor-opacity-slider {
-    -webkit-appearance: none;
-    vertical-align: middle;
-    border: 1px solid gray;
-    outline: none;
-    width: 150px;
-    height: 0px;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border: 1px solid gray;
+  outline: none;
+  width: 150px;
+  height: 0px;
 }
 
 #vs-dummy-editor-opacity-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-color: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    width: 9px;
-    height: 18px;
-    cursor: default;
+  -webkit-appearance: none;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 9px;
+  height: 18px;
+  cursor: default;
 }
 
 #vs-dummy-editor-opacity-slider::-moz-range-track {
-    border: 1px solid gray;
-    outline: none;
-    width: 150px;
-    height: 0px;
+  border: 1px solid gray;
+  outline: none;
+  width: 150px;
+  height: 0px;
 }
 
 #vs-dummy-editor-opacity-slider::-moz-range-thumb {
-    background-color: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    width: 9px;
-    height: 18px;
-    cursor: default;
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  width: 9px;
+  height: 18px;
+  cursor: default;
 }
 
 #vs-dummy-editor-minimize {
-    cursor: default;
+  cursor: default;
 }
 
 #vs-dummy-editor-close {
-    cursor: default;
-    margin-left: 12px;
+  cursor: default;
+  margin-left: 12px;
 }
 
 #vs-dummy-editor-buttons {
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 4px;
-    flex-wrap: wrap;
-    line-height: 0px;
-    border-bottom: 3px solid #ddd;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 4px;
+  flex-wrap: wrap;
+  line-height: 0px;
+  border-bottom: 3px solid #ddd;
 }
 
 #vs-dummy-editor-segment-pl {
-    width: 30%;
-    font-size: 15px;
-    margin-top: 3px;
+  width: 30%;
+  font-size: 15px;
+  margin-top: 3px;
 }
 
 #vs-dummy-editor-segment-sk {
-    width: 30%;
-    font-size: 15px;
-    margin-top: 3px;
+  width: 30%;
+  font-size: 15px;
+  margin-top: 3px;
 }
 
 #vs-dummy-editor-segments {
-    overflow: hidden;
-    text-align: center;
-    padding: 4px 0;
-    font-size: 16px !important;
-    border-bottom: 3px solid #ddd;
+  overflow: hidden;
+  text-align: center;
+  padding: 4px 0;
+  font-size: 16px !important;
+  border-bottom: 3px solid #ddd;
 }
 
 #vs-dummy-editor-segments .vs-editor-segment-entry-end-time {
-    font-size: 16px !important;
-    cursor: context-menu;
+  font-size: 16px !important;
+  cursor: context-menu;
 }
 
 #vs-dummy-editor-segments .vs-editor-segment-entry-type-simplified {
-    font-size: 16px !important;
+  font-size: 16px !important;
 }
 
 #vs-dummy-editor-actions {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 5px 0;
-    font-size: 16px !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 16px !important;
 }
 
 #vs-dummy-editor-origin {
-    text-align: center;
-    width: 45%;
+  text-align: center;
+  width: 45%;
 }
 
 #vs-dummy-editor-share {
-    font-family: courier;
-    text-align: center;
-    font-size: 16px;
-    width: 45%;
+  font-family: courier;
+  text-align: center;
+  font-size: 16px;
+  width: 45%;
 }
 
 #vs-welcome-color-scheme-selector {
-    font-size: 18px;
-    margin-top: 1rem;
-    width: 200px;
+  font-size: 18px;
+  margin-top: 1rem;
+  width: 200px;
 }
 
 .vs-welcome-tutorial-mode-selector {
-    width: 200px;
-    text-align: left;
-    margin: 0 auto 4rem auto;
+  width: 200px;
+  text-align: left;
+  margin: 0 auto 4rem auto;
 }
 
 .vs-welcome-tutorial-mode {
-    width: 200px;
-    margin: 2rem 0;
+  width: 200px;
+  margin: 2rem 0;
 }
 
 .vs-welcome-tutorial-mode-text {
-    font-size: 22px;
+  font-size: 22px;
 }
 
-.vs-welcome-tutorial input[type="radio"]:checked+label span {
-    border-bottom: 1px solid black;
+.vs-welcome-tutorial input[type='radio']:checked + label span {
+  border-bottom: 1px solid black;
 }
 
 #vs-welcome-start {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 22px;
-    color: #333;
-    text-align: center;
-    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  color: #333;
+  text-align: center;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
 
-    background-color: #fbfbfb;
-    border-color: 1px solid #ddd;
-    padding: 0.5rem 3rem;
+  background-color: #fbfbfb;
+  border-color: 1px solid #ddd;
+  padding: 0.5rem 3rem;
 }
 
 #vs-welcome-start:hover {
-    background-color: #e2e2e2;
+  background-color: #e2e2e2;
 }
 
 /*
     Other stuff
 */
 #vs-cut-video-button {
-    background-color: white;
-    padding: 0;
-    border: 0;
+  background-color: white;
+  padding: 0;
+  border: 0;
 
-    outline: none;
-    cursor: pointer;
-    color: #888;
+  outline: none;
+  cursor: pointer;
+  color: #888;
 
-    width: 120px;
+  width: 120px;
 }
 
 #vs-cut-video-button-image {
-    padding: 8px 4px;
+  padding: 8px 4px;
 
-    max-height: 20px;
-    max-width: 20px;
-    height: 20px;
-    width: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  height: 20px;
+  width: 20px;
 
-    top: -5px;
-    bottom: 0;
+  top: -5px;
+  bottom: 0;
 }
 
 #vs-cut-video-button-text {
-    font-family: Roboto, Arial, sans-serif;
-    text-transform: uppercase;
+  font-family: Roboto, Arial, sans-serif;
+  text-transform: uppercase;
 
-    line-height: 2.6em;
-    padding-right: 4px;
+  line-height: 2.6em;
+  padding-right: 4px;
+}
+
+/*  */
+
+.vs-editor-short-video-panel input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.vs-editor-short-video-panel label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 35px;
+  height: 18px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  top: 3px;
+}
+
+.vs-editor-short-video-panel label:after {
+  content: '';
+  position: absolute;
+  top: 3.4px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.vs-editor-short-video-panel input:checked + label {
+  background: #33cf33;
+}
+
+.vs-editor-short-video-panel input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.vs-editor-short-video-panel label:active:after {
+  width: 12px;
 }

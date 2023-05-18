@@ -1,21 +1,21 @@
 /*
-    VideoSegments. Extension to Cut YouTube Videos. 
-    Copyright (C) 2017-2019  Alex Lys
+	VideoSegments. Extension to Cut YouTube Videos. 
+	Copyright (C) 2017-2019  Alex Lys
 
-    This file is part of VideoSegments.
+	This file is part of VideoSegments.
 
-    VideoSegments is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	VideoSegments is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    VideoSegments is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	VideoSegments is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with VideoSegments. If not, see <https://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with VideoSegments. If not, see <https://www.gnu.org/licenses/>.
 */
 
 'use strict';
@@ -152,9 +152,8 @@ class Editor {
 
 		for (let i = 0; i < segmentation.timestamps.length; i += 2) {
 			console.log(i)
-			console.log(`Segment ${j}: ${segmentation.timestamps[i]}-${segmentation.timestamps[i+1]}\n\n`)
 			console.log(segmentation.timestamps)
-			seg_str += `Segment ${j}: ${secondsToClockTime(segmentation.timestamps[i])}-${secondsToClockTime(segmentation.timestamps[i+1])}\n\n`;
+			seg_str += `Segment ${j}: ${secondsToClockTime(segmentation.timestamps[i])}-${secondsToClockTime(segmentation.timestamps[i + 1])}\n\n`;
 			j += 1;
 
 		}
@@ -172,6 +171,9 @@ class Editor {
 			return;
 		}
 
+		if (this.segmentation.inverse === true) {
+			document.getElementById("vs-editor-toggle").checked = true
+		}
 		for (let i = 0; i < this.segmentation.types.length; ++i) {
 			// pass by reference to make smart cursor able to change timestamps 
 			let entry = this.createSegmentEntry(i);
@@ -513,6 +515,9 @@ class Editor {
 	}
 
 	hookButtons() {
+		let toggle = document.getElementById("vs-editor-toggle");
+		toggle.addEventListener('click', this.onToggleClick.bind(this))
+
 		let buttons = document.getElementsByClassName('vs-editor-buttons-left');
 		for (let button of buttons) {
 			button.addEventListener('click', this.onLeftButtonClick.bind(this));
@@ -549,13 +554,19 @@ class Editor {
 		this.addSegment(roundFloat(this.video.currentTime, 1e1), caller.id.substring(22), false);
 		this.saveSegmentation();
 	}
+	
+	onToggleClick(e) {
+		let target = e.target.checked
+		this.segmentation.inverse = target;
+		this.saveSegmentation()
+		location.reload()
+	}
 
 	addSegment(timestamp, type, left) {
 		// log(timestamp, type, left);
 
 		// clear focus 
 		document.activeElement.blur();
-
 		let entry;
 		if (typeof this.segmentation.timestamps !== 'undefined' && this.segmentation.timestamps.length > 0) {
 			let index = this.segmentation.timestamps.findIndex((element) => {
@@ -708,30 +719,30 @@ class Editor {
 	}
 
 
-	
-	copyText(stringWithNewLines){
 
-        // Step 1: create a textarea element.
-        // It is capable of holding linebreaks (newlines) unlike "input" element
-        const mySmartTextarea = document.createElement('textarea');
-        
-        // Step 2: Store your string in innerHTML of mySmartTextarea element        
-        mySmartTextarea.innerHTML = stringWithNewLines;
-        
-        // Step3: find an id element within the body to append your mySmartTextarea there temporarily
-        const parentElement = document.body
-        parentElement.appendChild(mySmartTextarea);
-        
-        // Step 4: Simulate selection of your text from mySmartTextarea programmatically 
-        mySmartTextarea.select();
-        
-        // Step 5: simulate copy command (ctrl+c)
-        // now your string with newlines should be copied to your clipboard 
-        document.execCommand('copy');
+	copyText(stringWithNewLines) {
 
-        // Step 6: Now you can get rid of your "smart" textarea element
-        parentElement.removeChild(mySmartTextarea);
-    }
+		// Step 1: create a textarea element.
+		// It is capable of holding linebreaks (newlines) unlike "input" element
+		const mySmartTextarea = document.createElement('textarea');
+
+		// Step 2: Store your string in innerHTML of mySmartTextarea element        
+		mySmartTextarea.innerHTML = stringWithNewLines;
+
+		// Step3: find an id element within the body to append your mySmartTextarea there temporarily
+		const parentElement = document.body
+		parentElement.appendChild(mySmartTextarea);
+
+		// Step 4: Simulate selection of your text from mySmartTextarea programmatically 
+		mySmartTextarea.select();
+
+		// Step 5: simulate copy command (ctrl+c)
+		// now your string with newlines should be copied to your clipboard 
+		document.execCommand('copy');
+
+		// Step 6: Now you can get rid of your "smart" textarea element
+		parentElement.removeChild(mySmartTextarea);
+	}
 
 
 
@@ -754,7 +765,8 @@ class Editor {
 		let segmentation = {
 			id: this.id,
 			timestamps: this.segmentation.timestamps.slice(1, this.segmentation.timestamps.length),
-			types: this.segmentation.types.slice()
+			types: this.segmentation.types.slice(),
+			inverse: this.segmentation.inverse
 		}
 
 		if (settings.mode === 'simplified') {
@@ -894,13 +906,15 @@ class Editor {
 				// break link between segments data and saved data 
 				segmentation = {
 					timestamps: this.segmentation.timestamps.slice(),
-					types: convertSimplifiedSegmentation(this.segmentation.types)
+					types: convertSimplifiedSegmentation(this.segmentation.types),
+					inverse: this.segmentation.inverse
 				};
 			} else {
 				// break link between segments data and saved data
 				segmentation = {
 					timestamps: this.segmentation.timestamps.slice(),
-					types: this.segmentation.types.slice()
+					types: this.segmentation.types.slice(),
+					inverse: this.segmentation.inverse
 				};
 			}
 
@@ -1017,7 +1031,6 @@ class Editor {
 						this.segments.firstChild.remove();
 					}
 					this.createSegmentsEntries();
-
 					if (settings.mode === 'simplified') {
 						document.getElementById('vs-editor-simplified-buttons').style.display = 'flex';
 						document.getElementById('vs-editor-expert-buttons').style.display = 'none';
